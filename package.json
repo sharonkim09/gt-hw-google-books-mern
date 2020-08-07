@@ -1,0 +1,25 @@
+{
+  "name": "gt-hw-google-books-mern",
+  "version": "1.0.0",
+  "description": "### Overview",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/sharonkim09/gt-hw-google-books-mern.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/sharonkim09/gt-hw-google-books-mern/issues"
+  },
+  "homepage": "https://github.com/sharonkim09/gt-hw-google-books-mern#readme",
+  "dependencies": {
+    "express": "^4.17.1",
+    "mongoose": "^5.9.27"
+  }
+}
