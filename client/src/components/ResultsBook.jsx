@@ -4,10 +4,10 @@ const ResultsBook = (props) => {
   return (
     <>
       <div className="row">
-        <div className="col s4">
+        <div className="col">
           <div className="card">
             <div className="card-image">
-              <img className="card.img" src={props.thumbnail} />
+              <img className="card.img" src={props.thumbnail} style={{width:"200px"}}/>
             </div>
             <div className="card-content">
               <h2>{props.title}</h2>
