@@ -11,6 +11,11 @@ const Input = (props) => {
           name="search" 
           value={props.search}
           onChange={props.handleInputChange} />
+          <button 
+          className="btn btn-dark"
+          onClick={props.handleFormSubmit}>
+            Search
+            </button>
         </form>
       </div>
     </>
