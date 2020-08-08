@@ -55,6 +55,7 @@ class Search extends Component {
               title={book.volumeInfo.title}
               description={book.volumeInfo.description}
               author={book.volumeInfo.authors}
+              link={book.volumeInfo.infoLink}
             />
           );
         })}
