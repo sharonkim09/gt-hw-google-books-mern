@@ -39,7 +39,9 @@ class Search extends Component {
                 {this.state.books.map((book,i)=>{
                     return( 
                         <ResultsBook 
-                    thumbnail={book.volumeInfo.imageLinks.smallThumbnail} />
+                    thumbnail={book.volumeInfo.imageLinks.smallThumbnail}
+                    title={book.volumeInfo.title}
+                    />
                     )
                 })}
          
