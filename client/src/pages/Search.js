@@ -41,6 +41,8 @@ class Search extends Component {
                         <ResultsBook 
                     thumbnail={book.volumeInfo.imageLinks.smallThumbnail}
                     title={book.volumeInfo.title}
+                    description={book.volumeInfo.description}
+                    author={book.volumeInfo.authors}
                     />
                     )
                 })}
