@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Input from "../components/Input";
 import API from '../utils/API';
+import ResultsBook from '../components/ResultsBook';
 class Search extends Component {
     state={
         search:"",
@@ -35,6 +36,13 @@ class Search extends Component {
                 search={this.state.search}
                 handleInputChange={this.handleInputChange}
                 handleFormSubmit={this.handleFormSubmit}/>
+                {this.state.books.map((book,i)=>{
+                    return( 
+                        <ResultsBook 
+                    thumbnail={book.volumeInfo.imageLinks.smallThumbnail} />
+                    )
+                })}
+         
             </>
         );
     }
