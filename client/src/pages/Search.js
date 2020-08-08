@@ -11,13 +11,17 @@ class Search extends Component {
             [name]:value
         })
     }
+    handleFormSubmit=(event)=>{
+        event.preventDefault();
+        console.log("Clicked button")
+    }
     render() {
         return (
             <>
                 <Input 
                 search={this.state.search}
                 handleInputChange={this.handleInputChange}
-                />
+                handleFormSubmit={this.handleFormSubmit}/>
             </>
         );
     }
