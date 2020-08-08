@@ -19,9 +19,9 @@ const ResultsBook = (props) => {
               </p>
             </div>
             <div className="card-action">
-              <button className="btn btn-dark" id="viewBtn">
+              <a className="btn btn-dark" href={props.link}id="viewBtn">
                 View Book
-              </button>
+              </a>
               <button className="btn btn-dark" id="saveBtn">
                 Save Book
               </button>
