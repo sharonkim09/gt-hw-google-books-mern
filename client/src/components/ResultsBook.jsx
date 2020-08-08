@@ -10,7 +10,7 @@ const ResultsBook = (props) => {
               <img className="card.img"src={props.thumbnail}/>
             </div>
             <div className="card-content">
-            <p className="card-title">Card Title</p>
+            <p className="card-title">{props.title}</p>
               <p>I am a very simple card. I am good at containing small bits of information.
               I am convenient because I require little markup to use effectively.</p>
             </div>
