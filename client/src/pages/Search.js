@@ -1,8 +1,20 @@
 import React, { Component } from 'react';
 import Input from "../components/Input";
+import API from '../utils/API';
 class Search extends Component {
     state={
-        search:""
+        search:"",
+        books:[]
+    }
+    componentDidMount(){
+        API.getBooks("Harry Potter").then((res)=>{
+            console.log(res.data.items)
+            this.setState({
+                books:res.data.items
+            })
+        }).catch((err)=>{
+            console.log(err)
+        })
     }
     handleInputChange = (event)=>{
         const name = event.target.name;
@@ -13,7 +25,8 @@ class Search extends Component {
     }
     handleFormSubmit=(event)=>{
         event.preventDefault();
-        console.log("Clicked button")
+        console.log("Clicked button");
+        API.getBooks(this.state.search).then(console.log(this.state.search.data))
     }
     render() {
         return (
