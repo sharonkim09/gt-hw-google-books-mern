@@ -7,11 +7,11 @@ const ResultsBook = (props) => {
       <div className="card">
         <div className="row">
           <div className="col l12">
-            <a className="right btn btn-dark" href={props.link} id="viewBtn">
-              View Book
+            <a className="right btn" href={props.link} id="viewBtn">
+            <i class="fa fa-eye" aria-hidden="true"></i>
             </a>
             <button className="right btn btn-dark" id="saveBtn">
-              Save Book
+            <i class="fa fa-heart-o" aria-hidden="true"></i>
             </button>
             <h2>{props.title}</h2>
             <h3>{props.author}</h3>
