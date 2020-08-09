@@ -1,8 +1,8 @@
 import React from "react";
-
+import "./style.css";
 const Header = () => {
   return (
-      <div className="container">
+      <div id="headerEl">
           <div className="center">
           <h1>Google Books Search</h1>
         <h5>Search for and Save Book of Interest</h5>
