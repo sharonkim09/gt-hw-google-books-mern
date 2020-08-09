@@ -32,5 +32,4 @@ const ResultsBook = (props) => {
     </>
   );
 };
-
 export default ResultsBook;

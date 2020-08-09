@@ -1,6 +1,6 @@
 import React from 'react';
-import NavBar from "./components/NavBar";
-import Header from "./components/Header";
+import NavBar from "./components/NavBar/NavBar";
+import Header from "./components/Header/Header";
 import Search from "./pages/Search";
 import Saved from "./pages/Saved";
 // import './App.css';
@@ -10,6 +10,7 @@ function App() {
     <Router>
       <NavBar/>
       <Header/>
+      <Route exact path="/" component={Search}/>
       <Route exact path="/search" component={Search}/>
       <Route exact path="/saved" component={Saved}/>
     </Router>
