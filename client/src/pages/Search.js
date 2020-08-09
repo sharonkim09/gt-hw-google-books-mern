@@ -29,17 +29,35 @@ class Search extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("Clicked button");
-    API.getBooks(this.state.search)
-    .then((res) => {
-      console.log(res.data.items);
-      this.setState({
-        books: res.data.items,
+    API.getGoogleBooks(this.state.search)
+      .then((res) => {
+        console.log(res.data.items);
+        this.setState({
+          books: res.data.items,
+        });
+      })
+      .catch((err) => {
+        console.log(err);
       });
-    })
-    .catch((err) => {
-      console.log(err);
-    });
   };
+
+  handleSave = (event) => {
+    const filteredBooks = this.state.books.filter(
+      (book) => book.id === event.target.id
+    );
+    const savedBooks = filteredBooks[0];
+
+    API.saveBook({
+      savedBooks,
+    }).then(
+      this.setState({
+        message: alert("This book added to saved!"),
+      })
+    ).catch(err=>{
+      console.log(err)
+    })
+  };
+
   render() {
     return (
       <>
@@ -51,11 +69,14 @@ class Search extends Component {
         {this.state.books.map((book, i) => {
           return (
             <ResultsBook
+              key={book.id}
+              id={book.id}
               thumbnail={book.volumeInfo.imageLinks.smallThumbnail}
               title={book.volumeInfo.title}
               description={book.volumeInfo.description}
               author={book.volumeInfo.authors}
               link={book.volumeInfo.infoLink}
+              handleSave={this.handleSave}
             />
           );
         })}
