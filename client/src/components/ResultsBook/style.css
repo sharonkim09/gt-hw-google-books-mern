@@ -3,8 +3,12 @@
 }
 #saveBtn{
     margin-right:10px;
+    background-color:#d8377e;
 }
 #bookImg{
     float:left;
     margin-right:20px;
+}
+#viewBtn{
+    background-color:#959596;
 }
