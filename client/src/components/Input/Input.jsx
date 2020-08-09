@@ -1,18 +1,20 @@
 import React from "react";
-
+import "./style.css"
 const Input = (props) => {
   return (
     <>
-      <div className="container">
+      <div className="container" id="formSection">
         <form>
           <input 
           type="text"
           placeholder="Search for a book"
           name="search" 
           value={props.search}
-          onChange={props.handleInputChange} />
+          onChange={props.handleInputChange}
+          id="inputEl" />
           <button 
-          className="btn btn-dark"
+          className="btn btn-dark right"
+          id="searchbtn"
           onClick={props.handleFormSubmit}>
             Search
             </button>
