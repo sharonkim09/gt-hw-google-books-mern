@@ -13,7 +13,15 @@ const ResultsBook = (props) => {
             <button
               className="right btn btn-dark"
               id={props.id}
-              onClick={(event)=>props.handleSave(event)}
+              onClick={() =>
+                props.saveBook(
+                  props.title,
+                  props.authors,
+                  props.description,
+                  props.image,
+                  props.link
+                )
+              }
             >
               <i className="fa fa-heart-o" aria-hidden="true"></i>
             </button>

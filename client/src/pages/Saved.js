@@ -1,36 +1,47 @@
-import React, { useState, useEffect } from "react";
-
-import ResultsBook from "../components/ResultsBook/ResultsBook";
+import React, { Component } from "react";
 import API from "../utils/API";
+import ResultsBook from "../components/ResultsBook/ResultsBook";
+import SaveBooks from "../components/List/SaveBooks"
+class Saved extends Component {
+  state = {
+    books: [],
+  };
 
-const Saved = () => {
-  const [saved, setSaved] = useState([]);
-  useEffect(() => {
-    loadSaved();
-  }, []);
+  componentDidMount() {
+    this.loadBooks();
+  }
 
-  const loadSaved=()=>{
+  loadBooks = () => {
     API.getBooks()
-      .then((res) =>{ setSaved(res.data)})
+      .then((res) => this.setState({ books: res.data }))
       .catch((err) => console.log(err));
   };
 
-  return (
-    <>
-      <p>fjieorfjieofjoe</p>
-      {saved.map((book) => (
-        <ResultsBook
-          key={book._id}
-          id={book._id}
-          thumbnail={book.thumbnail}
-          title={book.title}
-          description={book.description}
-          author={book.authors}
-          link={book.infoLink}
-        />
-      ))}
-    </>
-  );
-};
+  render() {
+    return (
+      <>
+        <div>
+          <h1>(React) Google Books Search</h1>
+          <h4>Search for and Save Books of Interest</h4>
+        </div>
+        <div>
+          {this.state.books.map((book) => (
+            <SaveBooks
+              key={book._id}
+              id={book._id}
+              link={book.link}
+              title={book.title}
+              author={book.authors}
+              description={book.description}
+              image={book.image}
+              button={false}
+              onClick={this.deleteBook}
+            />
+          ))}
+        </div>
+      </>
+    );
+  }
+}
 
 export default Saved;

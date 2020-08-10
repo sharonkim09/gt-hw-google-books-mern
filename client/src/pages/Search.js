@@ -32,21 +32,17 @@ class Search extends Component {
         console.log(err);
       });
   };
-  handleSave = (event) => {
-    const savedBooks = this.state.books.find(book => book.id === event.target.id);
+  saveBook = (title, author, description, img, link) => {
+    //event.preventDefault();
     API.saveBook({
-     savedBooks
-     } )
-      .then(
-        this.setState({
-          message: alert(
-            "This book has been saved!"
-          ),
-        })
-      )
-      .catch((err) => {
-        console.log(err);
-      });
+      title: title,
+      author: author,
+      description: description,
+      image: img,
+      link: link
+    })
+      .then(res => console.log("book saved to database"))
+      .catch(err => console.log(err));
   };
 
   render() {
@@ -61,13 +57,12 @@ class Search extends Component {
           return (
             <ResultsBook
               key={book.id}
-              id={book.id}
               thumbnail={book.volumeInfo.imageLinks.smallThumbnail}
               title={book.volumeInfo.title}
               description={book.volumeInfo.description}
               author={book.volumeInfo.authors}
               link={book.volumeInfo.infoLink}
-              handleSave={this.handleSave}
+              saveBook={this.saveBook}
             />
           );
         })}
