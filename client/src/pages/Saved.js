@@ -11,7 +11,7 @@ const Saved = () => {
 
   const loadSaved=()=>{
     API.getBooks()
-      .then((res) => setSaved(res.data))
+      .then((res) =>{ setSaved(res.data)})
       .catch((err) => console.log(err));
   };
 
