@@ -13,9 +13,9 @@ const SaveBooks = (props) => {
                   onClick={() =>
                     props.onClick(
                       props.title,
-                      props.author,
+                      props.authors,
                       props.description,
-                      props.image,
+                      props.thumbnail,
                       props.link
                     )
                   }
@@ -30,11 +30,11 @@ const SaveBooks = (props) => {
                   type="button"
                   id="deleteBtn"
                 >
-               <i class="fa fa-window-close" aria-hidden="true"></i>
+               <i className="fa fa-window-close" aria-hidden="true"></i>
                 </button>
               )}
               <h2>{props.title}</h2>
-              <h3>Written by:{props.author}</h3>
+              <h3>Written by:{props.authors}</h3>
               <div className="card-image">
                 <img
                   alt="book"

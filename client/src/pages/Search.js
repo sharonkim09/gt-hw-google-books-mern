@@ -32,13 +32,13 @@ class Search extends Component {
         console.log(err);
       });
   };
-  saveBook = (title, author, description, img, link) => {
+  saveBook = (title, author, description, thumbnail, link) => {
     //event.preventDefault();
     API.saveBook({
       title: title,
       author: author,
       description: description,
-      image: img,
+      thumbnail: thumbnail,
       link: link
     })
       .then(res => console.log("book saved to database"))
