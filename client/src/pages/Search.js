@@ -32,10 +32,11 @@ class Search extends Component {
         console.log(err);
       });
   };
-  handleSave = (savedBook) => {
-    API.saveBook(
-      savedBook
-    )
+  handleSave = (event) => {
+    const savedBooks = this.state.books.find(book => book.id === event.target.id);
+    API.saveBook({
+     savedBooks
+     } )
       .then(
         this.setState({
           message: alert(
