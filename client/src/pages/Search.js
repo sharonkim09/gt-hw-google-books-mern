@@ -7,18 +7,7 @@ class Search extends Component {
     search: "",
     books: [],
   };
-  componentDidMount() {
-    // API.getBooks("Harry Potter")
-    //   .then((res) => {
-    //     console.log(res.data.items);
-    //     this.setState({
-    //       books: res.data.items,
-    //     });
-    //   })
-    //   .catch((err) => {
-    //     console.log(err);
-    //   });
-  }
+
   handleInputChange = (event) => {
     const name = event.target.name;
     const value = event.target.value;
@@ -29,6 +18,9 @@ class Search extends Component {
   handleFormSubmit = (event) => {
     event.preventDefault();
     console.log("Clicked button");
+    this.getBooks();
+  };
+  getBooks = () => {
     API.getGoogleBooks(this.state.search)
       .then((res) => {
         console.log(res.data.items);
@@ -40,22 +32,20 @@ class Search extends Component {
         console.log(err);
       });
   };
-
-  handleSave = (event) => {
-    const filteredBooks = this.state.books.filter(
-      (book) => book.id === event.target.id
-    );
-    const savedBooks = filteredBooks[0];
-
-    API.saveBook({
-      savedBooks,
-    }).then(
-      this.setState({
-        message: alert("This book added to saved!"),
-      })
-    ).catch(err=>{
-      console.log(err)
-    })
+  handleSave = (savedBook) => {
+    API.saveBook(
+      savedBook
+    )
+      .then(
+        this.setState({
+          message: alert(
+            "This book has been saved!"
+          ),
+        })
+      )
+      .catch((err) => {
+        console.log(err);
+      });
   };
 
   render() {
