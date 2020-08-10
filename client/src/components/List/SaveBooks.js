@@ -1,21 +1,56 @@
 import React from "react";
-
+import "./style.css"
 const SaveBooks = (props) => {
   return (
-    <div className="entry">
-      <div className="header">
-      <p>{props.title} <br/>Written by {props.author}</p>
-      <div className="buttons">
-      <a href={props.link}><button type="button">View</button></a>
-      {props.button ? (
-      <button onClick={() => props.onClick(props.title,props.author,props.description,props.image,props.link)} type="button">Save</button>
-      ) : (
-        <button onClick={() => props.onClick(props.id)} type="button">Delete</button>
-      )}
+    <div id="savedBooksContainer">
+      <div className="card">
+        <div className="row">
+          <div className="col l12">
+            <div className="buttons">
+              <a className="btn right"href={props.link}><i className="fa fa-eye " aria-hidden="true"></i></a>
+              {props.button ? (
+                <button
+                  onClick={() =>
+                    props.onClick(
+                      props.title,
+                      props.author,
+                      props.description,
+                      props.image,
+                      props.link
+                    )
+                  }
+                  type="button"
+                >
+                  Save
+                </button>
+              ) : (
+                <button
+                  className="right btn"
+                  onClick={() => props.onClick(props.id)}
+                  type="button"
+                  id="deleteBtn"
+                >
+               <i class="fa fa-window-close" aria-hidden="true"></i>
+                </button>
+              )}
+              <h2>{props.title}</h2>
+              <h3>Written by:{props.author}</h3>
+              <div className="card-image">
+                <img
+                  alt="book"
+                  src={props.thumbnail}
+                  className="card.img"
+                  style={{ width: "200px" }}
+                />
+                <p id="descriptionEl">
+                {props.description}
+                  </p>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
-      </div>
-      <p className="description"><img src={props.image} className="image"/>{props.description}</p>
     </div>
   );
-}
+};
 export default SaveBooks;
