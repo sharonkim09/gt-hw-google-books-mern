@@ -1,6 +1,5 @@
 import React, { Component } from "react";
 import API from "../utils/API";
-import ResultsBook from "../components/ResultsBook/ResultsBook";
 import SaveBooks from "../components/List/SaveBooks"
 class Saved extends Component {
   state = {
@@ -16,6 +15,11 @@ class Saved extends Component {
       .then((res) => this.setState({ books: res.data }))
       .catch((err) => console.log(err));
   };
+  deleteBook=id=>{
+    API.deleteBook(id)
+    .then(res=>this.loadBooks())
+    .catch(err=>console.log(err))
+  }
 
   render() {
     return (
@@ -27,9 +31,9 @@ class Saved extends Component {
               id={book._id}
               link={book.link}
               title={book.title}
-              author={book.authors}
+              authors={book.author}
               description={book.description}
-              image={book.image}
+              thumbnail={book.thumbnail}
               button={false}
               onClick={this.deleteBook}
             />
