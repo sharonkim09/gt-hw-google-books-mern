@@ -17,8 +17,9 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 
 // last bit to get working
-app.use(express.static("client/build"));
-
+if (process.env.NODE_ENV === "production") {
+  app.use(express.static("client/build"));
+}
 
 app.use(routes);
 app.get("*", (req, res) => {
@@ -27,7 +28,7 @@ app.get("*", (req, res) => {
 
 // db connection
 mongoose
-  .connect(process.env.MONGODB_URI || "mongodb://localhost/gt-hw-google-books-mern", {
+  .connect(process.env.MONGODB_URI || "mongodb://localhost/googlebooks", {
     useNewUrlParser: true,
     useUnifiedTopology: true,
   })
